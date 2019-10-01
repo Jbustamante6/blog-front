@@ -1,4 +1,5 @@
 <div class="container">
+    <a href="#!/login" class="badge badge-primary">Login</a>
   <div class="row">
 
       <div class="col-12">
@@ -30,7 +31,7 @@
                 <h4 class="card-title">
                   <a href="#!/post/{{dat.id}}">Post {{dat.id}}</a>
                 </h4>
-                <p class="card-text">{{dat.title}}</p>
+                <p class="card-text">{{dat.title | limitTo:200 }}</p>
               </div>
               <div class="card-footer">
                 <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>

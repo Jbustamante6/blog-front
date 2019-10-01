@@ -1,4 +1,4 @@
-angular.module('app',['ngRoute', 'services','controllers'])
+angular.module('app',['ngRoute', 'services','controllers','factories'])
 .constant('CONFIG', {
     APIURL: "http://localhost:8000/api/",
     TEMPLATE_DIR:"templates/",
@@ -24,6 +24,10 @@ angular.module('app',['ngRoute', 'services','controllers'])
         templateUrl: 'templates/login.html',
         controller: 'loginController',
     })
+    .when('/logout', {
+        templateUrl: 'templates/login.html',
+        controller: 'logoutController',
+    })
     .when('/admin/users', {
         templateUrl: 'templates/user/list.html',
         controller: 'listUsersController',
@@ -32,6 +36,25 @@ angular.module('app',['ngRoute', 'services','controllers'])
         templateUrl: 'templates/user/form.html',
         controller: 'userCreateController',
     })
+    .when('/admin/users/edit/:id', {
+        templateUrl: 'templates/user/form-edit.html',
+        controller: 'userEditController',
+    })
+
+    .when('/admin/posts', {
+        templateUrl: 'templates/post/list.html',
+        controller: 'listPostsController',
+    })
+    .when('/admin/posts/create', {
+        templateUrl: 'templates/post/form.html',
+        controller: 'postCreateController',
+    })
+    .when('/admin/posts/edit/:id', {
+        templateUrl: 'templates/post/form-edit.html',
+        controller: 'postEditController',
+    })
+
+    
 
     .otherwise({
         redirectTo: '/'
